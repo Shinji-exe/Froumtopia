@@ -23,7 +23,7 @@ export const getThreads = async (req, res) => {
 export const getThread = async (req, res) => {
   try {
     const {id} = req.params
-    const thread = await Thread.findById(id)
+    const thread = await Thread.findById(id).populate('posts')
     if (thread) {
       res.json(thread)
     } else {

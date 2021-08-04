@@ -1,8 +1,8 @@
 import api from "./apiConfig"
 
-export const createPost= async (input) => {
+export const createPost= async (id, input) => {
   try {
-    const res = await api.post("/create-post", input);
+    const res = await api.post(`/threads/${id}/posts`, input);
     return res.data;
   } catch (e) {
     throw e;

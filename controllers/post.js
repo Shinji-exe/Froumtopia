@@ -1,10 +1,20 @@
 import Post from "../models/post.js"
+import User from "../models/user.js"
+import Thread from "../models/thread.js"
 
 export const createPost = async (req, res) => {
   try {
     const post = new Post(req.body)
-    post.userId = req.user
+    const { id } = req.params
+    const thread = await Thread.findById(id)
+    const user = await User.findById(req.user)
+    post.userId = user.id
     await post.save()
+    user.posts.push(post._id)
+    await user.save()
+    thread.posts.push(post._id)
+    
+    await thread.save()
     res.status(201).json(post)
   } catch (e) {
     res.status(500).json({error: e.message})
@@ -23,7 +33,7 @@ export const getPosts = async (req, res) => {
 export const getPost = async (req, res) => {
   try {
     const {id} = req.params
-    const post = await Post.findById()
+    const post = await Post.findById(id)
     if (post) {
       res.json(post)
     } else {

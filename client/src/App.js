@@ -1,10 +1,10 @@
 import Navbar from "./components/nav/NavBar"
-import "./components/nav/NavBar.css"
+// import "./components/nav/NavBar.css"
 import {Route} from "react-router-dom"
 import Background from  "./components/background/Background"
 import {useState} from "react"
 
-import './App.css';
+// import './App.css';
 import Home from './screens/home/Home';
 import CreatePost from './screens/create/Create';
 import SignIn from './screens/sign-in/SignIn';
@@ -22,7 +22,10 @@ function App() {
   return (
     <div className="App">
 
-      <Navbar/>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      {/* <Navbar/>
       <MainNavBar/>
       
       <Route exact path = "/">
@@ -36,10 +39,14 @@ function App() {
       </Route>
       <Route path="/sign-in">
         <SignIn />
-      </Route>
-      <Footer/>
-      </div>
-}
+<<<<<<< HEAD
+      </Route> */}
+      {/* <Route path="/edit-post">
+        <Edit />
+  </Route> */}
+      <Route path="/create-post">
+        <CreatePost />
+      </Route> 
     </div>
   );
 }
