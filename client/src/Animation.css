@@ -1,94 +1,89 @@
-img{
-    /* width: 100%;
-height: 92vh; */
-transition: 2s ease-in-out;
+img {
+
+  transition: 2s ease-in-out;
 }
 
-.Background{
-    overflow: hidden;
+.Background {
+  overflow: hidden;
 }
 
-.Background figure{
-position: relative;
-width: 500%;
+.Background figure {
+  position: relative;
+  width: 500%;
   animation: lefts 30s infinite;
   margin: 0;
   left: 0;
 }
 
-.Background figure img{
-    width: 20%; 
+.Background figure img {
+  width: 20%;
   height: 720px;
   float: left;
 }
 
 
-@keyframes lefts
-{
-  0%
-  {
+@keyframes lefts {
+  0% {
     left: 0;
-    
+
   }
-  
-  20%
-  {
+
+  20% {
     left: 0;
   }
-  25%
-  {
+
+  25% {
     left: -100%;
   }
-  45%
-  {
+
+  45% {
     left: -100%;
   }
-  50%
-  {
+
+  50% {
     left: -200%;
   }
-  70%
-  {
+
+  70% {
     left: -200%;
   }
-  75%
-  {
+
+  75% {
     left: -300%;
   }
-  95%
-  {
+
+  95% {
     left: -300%;
   }
-  100%
-  {
+
+  100% {
     left: -400%;
   }
 }
 
 @media screen and (max-width: 600px) {
-    .text{
-        width: 100px;
-        position: absolute;
-        top: 200px;
-        left: 1000px;
-        color: white
-    }
-}
-
-
-.text{
-    width: 300px;
+  .text {
+    width: 100px;
     position: absolute;
     top: 200px;
-    left: 100px;
+    left: 1000px;
     color: white
+  }
 }
 
-.text span{
-    background: white;
-    width: 298px;
-    height: 1px;
-    position: absolute;
-    left: 0;
+
+.text {
+  width: 300px;
+  position: absolute;
+  top: 200px;
+  left: 100px;
+  color: white
 }
 
+.text span {
+  background: white;
+  width: 298px;
+  height: 1px;
+  position: absolute;
+  left: 0;
+}

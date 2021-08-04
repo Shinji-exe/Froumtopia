@@ -1,38 +1,38 @@
-import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useState } from 'react'
+import Layout from "../../components/Layout/Layout"
+import { createPost } from "../../services/post"
+import { useHistory } from 'react-router'
 
-export default function CreatePost (props) {
-    const [ input, setInput ] = useState({});
-    const history = useHistory();
+export default function NewPost(props) {
+  const [input, setInput] = useState({ body: "", imgUrl: "" })
 
-    const handleChange = (e) => {
-        const { id, value } =e.target;
-        setInput((prevInput)=>({
-            ...prevInput,
-            [id]: value,
-        }))
-    };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        // awaiting  create thread function 
-        history.push("/")
-    }
-    return (
-        <div>
-        New 
-        <form onSubmit={handleSubmit}>
-            <label>Title</label>
-            <input id="title" value={input.title} onChange={handleChange} />
-            <br />
-            <label>Thread Here!</label>
-            <input id="body" value={input.body} onChange={handleChange} />
-            <br />
-            <label>Image</label>
-            <input id="imgURL" value={input.imgUrl} onChange={handleChange} />
-            <br />
-            <button>Create Thread</button>
-        </form>
+  const handleChange = (e) => {
+    const { id, value } = e.target
+
+    setInput(prevInput => ({
+      ...prevInput,
+      [id]: value
+    }))
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await createPost(input);
+
+  }
+  return (
+    // <Layout user={props.user} setUser={props.setUser}>
+    <div>
+      new post
+      <form onSubmit={handleSubmit}>
+        <label>Post:</label>
+        <input id="body" value={input.body} onChange={handleChange} />
+        <label>Image URL:</label>
+        <input id="imgUrl" value={input.imgUrl} onChange={handleChange} />
+        <button>Submit</button>
+      </form>
     </div>
-    )
+    // </Layout>
+  )
 }
