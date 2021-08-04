@@ -25,7 +25,13 @@ export default function SignUp() {
     }
     return (
         <div>
-            
+            <div className="logo">
+                <h1>Forumtopia</h1>
+               
+            </div>
+            <div className = "back">
+
+            </div>
             {/* <Layout> */}
                 <form className="move" onSubmit={handleSubmit}>
                     <label>Username</label>
