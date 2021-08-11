@@ -13,6 +13,7 @@ import Categories from "./screens/Categories/Categories";
 import EditPost from "./screens/Posts/EditPost";
 import PostCard from "./screens/Posts/PostCard";
 import DeleteThread from "./screens/Threads/DeleteThread";
+import PasswordChange from "./screens/UpdatePassword/PasswordChange";
 // import UserProfile from "./screens/UserProfile/UserProfile";
 
 
@@ -36,6 +37,9 @@ function App() {
       </Route>
       <Route path="/sign-up">
         <SignUp user={user} setUser={setUser} />
+      </Route>
+      <Route path = "/change-password">
+        <PasswordChange/>
       </Route>
       <Route path="/sign-out">
         <SignOut setUser={setUser} />

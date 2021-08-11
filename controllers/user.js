@@ -99,17 +99,38 @@ export const getUser = async (req, res) => {
   }
 }
 
-export const updateUser = async (req, res) => {
-  try {
-    const { id } = req.params
-    const {body} = req
-    const user = await User.findById(id, body, {new: true})
-    if (user) {
-      res.json(user)
-    } else {
-      res.status(404).json({error: "Cannot be updated"})
-    }
-  } catch (e) {
-    res.status(404).json({error: e.message})
-  }
+export const updatePassword = async (req, res) => {
+ 
+ try{
+const {id} = req.params
+const salt = await bcrypt.genSalt(10)
+const password = await bcrypt.hash(req.body.password, salt)
+const user = await User.findByIdAndUpdate(id, body, {password: password}, {new: true})
+return res.status(200).json({status: true, data: user});
+ }catch(e){
+return res.status(400).json({status: false, error: e})
+ }
+
 }
+ // try {
+  //   const { id } = req.params
+  //   const {body} = req;
+  //   if(user){
+  //     
+  //   } else {
+
+  //   }
+    
+  //   res.status(200).json(user);
+  // } catch (e) {
+  //   res.status(500).json({error: e.message})
+  // }
+
+// const {body} = req
+
+
+// if (user) {
+//   res.json(user)
+// } else {
+//   res.status(404).json({error: "Cannot be updated"})
+// }

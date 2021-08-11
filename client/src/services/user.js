@@ -1,6 +1,6 @@
 import api from "./apiConfig"
 import jwtDecode from "jwt-decode"
-
+// console.log(id)
 export const signUp = async (credentials) => {
   try {
     const res = await api.post("/sign-up", credentials)
@@ -40,4 +40,18 @@ export const signOut = async () => {
   } catch(e) {
     throw e
   }
+}
+
+export const updatePassword = async (credentials) => {
+  try{
+    const res = await api.put("/users/id", credentials)
+    // localStorage.setItem("token", res.data.token)
+    //  let user = jwtDecode(res.data.token)
+    console.log(res.data)
+     return res.data;  
+    // return user
+  }catch(e){
+  throw e;
+  }
+  
 }
