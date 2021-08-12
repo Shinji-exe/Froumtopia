@@ -39,7 +39,7 @@ function App() {
         <SignUp user={user} setUser={setUser} />
       </Route>
       <Route path = "/change-password">
-        <PasswordChange/>
+        <PasswordChange user={user} setUser={setUser}/>
       </Route>
       <Route path="/sign-out">
         <SignOut setUser={setUser} />

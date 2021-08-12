@@ -42,9 +42,9 @@ export const signOut = async () => {
   }
 }
 
-export const updatePassword = async (credentials) => {
+export const updatePassword = async (id, credentials) => {
   try{
-    const res = await api.put("/users/id", credentials)
+    const res = await api.put(`/users/${id}`, credentials)
     // localStorage.setItem("token", res.data.token)
     //  let user = jwtDecode(res.data.token)
     console.log(res.data)

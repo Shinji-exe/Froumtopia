@@ -11,7 +11,7 @@ router.get("/verify", verify)
 router.get("/users", getUsers)
 router.get("/users/:id", getUser)
 // router.put("/users/:id", restrict, updateUser)
-router.put("/users", updatePassword)
+router.put("/users/:id", updatePassword)
 
 
 export default router

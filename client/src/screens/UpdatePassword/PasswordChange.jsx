@@ -9,13 +9,13 @@ import Layout from "../../components/Layout/Layout"
 
 export default function PasswordChange(props) {
     const [input, setInput] = useState({username: "", password: ""})
-     const {setUser} = props;
+     const {setUser, user} = props;
       const history = useHistory();
 
     const handleSubmit = async(error) =>{
         error.preventDefault();
-        const user = await updatePassword(input)
-        setUser(user);
+        const userData = await updatePassword(user.id, input)
+        setUser(userData);
         history.push("/sign-in")
     }
 
